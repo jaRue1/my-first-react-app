@@ -1,10 +1,18 @@
 import React, {useState} from 'react'
+const initalState = { 
+  firstName: 'Ruu',
+  lastName : 'Johnson',
+  phoneNumber : '',
+  address : '',
+  email : '',
+ }
 function FighterForm(){
-  const [firstName , setFirstName,] = useState('')
-  const [lastName,setLastName] = useState('')
-  const [phoneNumber,setPhoneNumber] = useState('')
-  const [address,setAddress] = useState('')
-  const [email,setEmail] = useState('')
+  const [fighterInfo, setFighterInfo] = useState(initalState)
+  const updateFighter = (e) => {
+    return setFighterInfo({...fighterInfo, [e.target.name]:e.target.value})
+  }
+
+
   return (
 
     <div>
@@ -12,40 +20,40 @@ function FighterForm(){
         First Name :
         <input type ='text' 
         name = 'firstName' 
-        value={firstName}
-        onChange={e =>setFirstName(e.target.value)}
+        value={fighterInfo.firstName}
+        onChange={(e => updateFighter(e))}
         />
       </label><br/>
       <label>
         Last Name :
         <input type ='text' 
         name = 'lastName' 
-        value={lastName}
-        onChange={e =>setLastName(e.target.value)}
+        value={fighterInfo.lastName}
+        onChange={(e => updateFighter(e))}
         />
       </label><br/>
       <label>
         Phone Number :
         <input type ='text' 
         name = 'phoneNumber' 
-        value={phoneNumber}
-        onChange={e =>setPhoneNumber(e.target.value)}
+        value={fighterInfo.phoneNumber}
+        onChange={(e => updateFighter(e))}
         />
       </label><br/>
       <label>
         Address :
         <input type ='text' 
         name = 'address' 
-        value={address}
-        onChange={e =>setAddress(e.target.value)}
+        value={fighterInfo.address}
+        onChange={(e => updateFighter(e))}
         />
       </label><br/>
       <label>
         Email :
         <input type ='text' 
         name = 'email' 
-        value={email}
-        onChange={e =>setEmail(e.target.value)}
+        value={fighterInfo.email}
+        onChange={(e => updateFighter(e))}
         />
       </label>
     </div>
